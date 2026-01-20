@@ -1,0 +1,8 @@
+# Synapse generated config + keys + media
+synapse/data/
+
+# TLS certs/keys
+.keys/
+
+# Local env
+.env
