@@ -36,9 +36,9 @@ Set at least:
 
 By default the example expects:
 
-- `.keys/fullchain.pem`
-- `.keys/privkey.pem`
-- `.keys/htpasswd`
+- `nginx/.keys/fullchain.pem`
+- `nginx/.keys/privkey.pem`
+- `nginx/.keys/htpasswd`
 
 Alternatively to static certs, you can use Let's Encrypt with Certbot or similar tools to generate certs.
 
@@ -58,8 +58,8 @@ Generate an Htpasswd file for basic auth on the Synapse Admin UI.
 
 ```bash
 sudo apt update && sudo apt install apache2-utils -y
-htpasswd -c .keys/htpasswd adminuser
-chmod 600 .keys/htpasswd
+htpasswd -c nginx/.keys/htpasswd adminuser
+chmod 600 nginx/.keys/htpasswd
 ```
 
 ## TLS certificates
@@ -67,9 +67,9 @@ chmod 600 .keys/htpasswd
 Place your cert/key where `TLS_CERT_FILE` / `TLS_KEY_FILE` point.
 
 ```bash
-cp /path/to/fullchain.pem .keys/fullchain.pem
-cp /path/to/privkey.pem .keys/privkey.pem
-chmod 600 .keys/privkey.pem
+cp /path/to/fullchain.pem nginx/.keys/fullchain.pem
+cp /path/to/privkey.pem nginx/.keys/privkey.pem
+chmod 600 nginx/.keys/privkey.pem
 ```
 
 ## First start
@@ -123,6 +123,8 @@ Should be something like:
 
 You may download any Matrix client (Element, FluffyChat, etc.) and connect to your homeserver from any device at `https://$MATRIX_DOMAIN/`.
 List of clients: https://matrix.org/ecosystem/clients/
+
+Your Matrix ID (MXID) will be in the format: `@username:$MATRIX_DOMAIN`
 
 ## URLs
 
